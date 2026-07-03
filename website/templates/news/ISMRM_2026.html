@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MiDI Lab - Research</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+        header { background: #fff; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        header h1 { margin: 0; }
+        nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: bold; }
+        nav a:hover { color: #007BFF; }
+
+        .intro { text-align: center; padding: 50px 20px; }
+        .intro img { max-width: 300px; border-radius: 12px; margin-bottom: 20px; }
+        .intro p { font-size: 1.2em; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+
+        .section { max-width: 900px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        .section img { max-width: 100%; border-radius: 8px; margin-top: 20px; }
+        .section h3 { margin-top: 0; }
+
+        /* Logos at bottom */
+        .logos { text-align: center; padding: 40px 0; background: #fff; margin-top: 50px; }
+        .logos img { width: 120px; margin: 0 20px; vertical-align: middle; }
+
+        .image-row {
+            display: flex;
+            gap: 15px;              /* ruimte tussen images */
+            justify-content: center;
+            flex-wrap: wrap;        /* mobiel vriendelijk */
+            margin-top: 0px;
+        }
+
+        .image-row img {
+            width: 100%;
+            max-width: 900px;   /* adjust as desired */
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .header-logo {
+            height: 70px;
+            width: auto;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;   /* ruimte tussen logo en tekst */
+        }
+
+                .container {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <h1>MiDI Lab</h1>
+        <img src="{% static 'images/umcutrecht_logo.png' %}" class="header-logo" alt="Logo">
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/people/">People</a>
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+    </nav>
+</header>
+
+<body>
+
+<div class="container">
+
+
+    <h1>ISMRM conference 2026 in Cape Town</h1>
+
+    <div class="highlight">
+        Recap of highlight ISMRM conference 2026 in Cape Town.
+    </div>
+
+    <p> We are pleased to announce that Dr. Tatiana Nikolaeva's abstract, <em>"High-Frequency OGSE at 28.2T in a Cortical Brain Organoid and Fiber Phantom"</em>, has been nominated for the Best Power Pitch Award. This recognition highlights the innovative work being carried out by members of the diffusion MRI community and showcases the impact of cutting-edge research in the field. </p>
+
+    <p> Looking ahead, we are excited to introduce the upcoming Microstructure Challenge, which will provide a platform for the community to evaluate and compare emerging approaches to correlate histology to MRI microscopy.
+        Data will be provided with our unique imaging capabilities at 28.2T field. Further details will be presented during the Microstructure Imaging Workshop at the ESMRMB Conference in Girona. We encourage all interested researchers to stay tuned for announcements and opportunities to participate. </p>
+
+        <div class="image-row">
+        <img src="{% static 'images/ISMRM_2026.jpg' %}" class="card-img-top" alt="News 1">
+    </div>
+
+    <div class="footer-note">
+        © MiDI Lab – UMC Utrecht
+    </div>
+
+</div>
+
+</body>
+</html>

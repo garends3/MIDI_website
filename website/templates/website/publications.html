@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MiDI Lab – Publications</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+
+    <style>
+        body { background: #f8f9fa; }
+        .pub-card {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background: #ffffff;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+        }
+        .pub-title { font-weight: 600; }
+        .pub-authors, .pub-journal { font-size: 0.9rem; color: #555; }
+        .year-heading { margin-top: 2rem; margin-bottom: 1rem; }
+        .navbar-nav .nav-link.active { font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<head>
+<title>MiDI Lab - Research</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    header { background: #fff; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    header h1 { margin: 0; }
+    nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: bold; }
+    nav a:hover { color: #007BFF; }
+
+    .intro { text-align: center; padding: 50px 20px; }
+    .intro h2 { font-size: 2em; margin-bottom: 20px; }
+    .intro p { max-width: 800px; margin: 0 auto; font-size: 1.2em; }
+
+    .section { max-width: 900px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .section img { max-width: 100%; border-radius: 8px; margin-top: 20px; }
+    .section h3 { margin-top: 0; }
+
+    /* Logos at bottom */
+    .logos { text-align: center; padding: 40px 0; background: #fff; margin-top: 50px; }
+    .logos img { width: 120px; margin: 0 20px; vertical-align: middle; }
+
+
+    .header-logo {
+        height: 70px;
+        width: auto;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 24px;   /* ruimte tussen logo en tekst */
+    }
+
+</style>
+</head>
+<body>
+<header>
+    <div class="header-left">
+        <h1>MiDI Lab</h1>
+        <img src="{% static 'images/umcutrecht_logo.png' %}" class="header-logo" alt="Logo">
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/people/">People</a>
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+    </nav>
+</header>
+
+<div class="container py-5">
+    <h1 class="text-center mb-5">Publications – MiDI Lab</h1>
+
+    <!-- Journal Articles -->
+    <h2>Journal Articles</h2>
+    {% if journal_articles %}
+        {% for year, articles in journal_articles.items %}
+            <h3 class="year-heading">{{ year }}</h3>
+            {% for article in articles %}
+                <div class="pub-card">
+                    <div class="pub-title">{{ article.title }}</div>
+                    <div class="pub-authors">{{ article.authors }}</div>
+                    <div class="pub-journal">
+                        {{ article.journal }} 
+                        {% if article.year %} ({{ article.year }}){% endif %}
+                        {% if article.link %}
+                            — <a href="{{ article.link }}" target="_blank">[PubMed]</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+        <p>No journal articles available.</p>
+    {% endif %}
+
+    <!-- PhD Theses -->
+    <h2 class="mt-5">PhD Theses</h2>
+    <ul>
+    {% for thesis in phd_theses %}
+        <li>
+        <strong>{{ thesis.title }}</strong><br>
+        {{ thesis.author }} — {{ thesis.university }} ({{ thesis.year }}) 
+        {% if thesis.link %}
+            <a href="{{ thesis.link }}" target="_blank">[Link]</a>
+        {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

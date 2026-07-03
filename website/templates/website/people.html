@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MiDI Lab – People</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body { background: #f8f9fa; }
+        a.person-link { text-decoration: none; color: inherit; }
+        .person-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            display: block;
+        }
+        .alumni-list li {
+            margin-bottom: 5px;
+        }
+
+        /* Header styles copied from Research page */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+        header { background: #fff; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        header h1 { margin: 0; }
+        nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: bold; }
+        nav a:hover { color: #007BFF; }
+
+        .intro { text-align: center; padding: 50px 20px; }
+        .intro img { max-width: 300px; border-radius: 12px; margin-bottom: 20px; }
+        .intro p { font-size: 1.2em; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;   /* ruimte tussen logo en tekst */
+        }
+
+        .header-logo {
+            height: 70px;
+            width: auto;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-left">
+        <h1>MiDI Lab</h1>
+        <img src="{% static 'images/umcutrecht_logo.png' %}" class="header-logo" alt="Logo">
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/people/">People</a>
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+    </nav>
+</header>
+
+
+<div class="container py-5">
+    <h1 class="text-center mb-5">MiDI Lab — People</h1>
+
+    <!-- Group Lead -->
+    <h2 class="mb-3">Group Lead</h2>
+    <div class="row mb-5">
+        <div class="col-md-4 col-sm-6">
+            <a href="/people/chantal-tax/" class="person-link">
+                <div class="card p-3 text-center person-card shadow">
+                    <img src="{% static 'people/chantal_tax.png' %}"
+                         alt="Chantal Tax"
+                         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+                    <h4>Chantal Tax</h4>
+                    <p class="text-muted">Associate Professor</p>
+                    <p><a href="mailto:C.M.W.Tax@umcutrecht.nl">C.M.W.Tax@umcutrecht.nl</a></p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Postdocs -->
+    <h2 class="mb-3">Postdocs</h2>
+    <div class="row mb-5">
+        <div class="col-md-4 col-sm-6">
+            <a href="/people/tatiana-nikolaeva/" class="person-link">
+                <div class="card p-3 text-center person-card shadow">
+                    <img src="{% static 'people/tatiana_nikolaeva.jpg' %}"
+                         alt="Tatiana Nikolaeva"
+                         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+                    <h4>Tatiana Nikolaeva</h4>
+                    <p class="text-muted">Postdoctoral Researcher</p>
+                    <p><a href="mailto:T.Nikolaeva@umcutrecht.nl">T.Nikolaeva@umcutrecht.nl</a></p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- PhD Students -->
+    <h2 class="mb-3">PhD Students</h2>
+    <div class="row mb-5">
+
+        <!-- Leon Arends -->
+        <div class="col-md-4 col-sm-6">
+            <a href="/people/leon-arends/" class="person-link">
+                <div class="card p-3 text-center person-card shadow">
+                    <img src="{% static 'people/leon_arends.jpeg' %}"
+                         alt="Leon Arends"
+                         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+                    <h4>Leon Arends</h4>
+                    <p class="text-muted">PhD Student</p>
+                    <p><a href="mailto:G.C.Arends-3@umcutrecht.nl">G.C.Arends-3@umcutrecht.nl</a></p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Christos Kanakis -->
+        <div class="col-md-4 col-sm-6">
+            <a href="/people/christos-kanakis/" class="person-link">
+                <div class="card p-3 text-center person-card shadow">
+                    <img src="{% static 'people/christos_kanakis.jpg' %}"
+                         alt="Christos Kanakis"
+                         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+                    <h4>Christos Kanakis</h4>
+                    <p class="text-muted">PhD Student</p>
+                    <p><a href="mailto:ck@cerebriu.com">ck@cerebriu.com</a></p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Paula del Popolo -->
+        <div class="col-md-4 col-sm-6">
+            <a href="/people/paula-del-popolo/" class="person-link">
+                <div class="card p-3 text-center person-card shadow">
+                    <img src="{% static 'people/Paula_del_Popolo.png' %}"
+                         alt="Paula del Popolo"
+                         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+                    <h4>Paula del Popolo</h4>
+                    <p class="text-muted">PhD Student</p>
+                    <p><a href="mailto:M.P.DelPopolo-2@umcutrecht.nl">M.P.DelPopolo-2@umcutrecht.nl</a></p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Jiaxin Zhang -->
+        <div class="col-md-4 col-sm-6">
+            <a href="/people/jiaxin-zhang/" class="person-link">
+                <div class="card p-3 text-center person-card shadow">
+                    <img src="{% static 'people/jiaxin_zhang.png' %}"
+                         alt="Jiaxin Zhang"
+                         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+                    <h4>Jiaxin Zhang</h4>
+                    <p class="text-muted">PhD Student</p>
+                    <p><a href="mailto:J.Zhang-3@umcutrecht.nl">J.Zhang-3@umcutrecht.nl</a></p>
+                </div>
+            </a>
+        </div>
+
+                <!-- Jamila Guichelaar -->
+        <div class="col-md-4 col-sm-6">
+            <a href="/people/jamila-guichelaar/" class="person-link">
+                <div class="card p-3 text-center person-card shadow">
+                    <img src="{% static 'people/jamila_guichelaar.jpg' %}"
+                         alt="Jamila Guichelaar"
+                         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+                    <h4>Jamila Guichelaar</h4>
+                    <p class="text-muted">PhD Student</p>
+                    <p><a href="mailto:C.J.Guichelaar-2@umcutrecht.nl">C.J.Guichelaar-2@umcutrecht.nl</a></p>
+                </div>
+            </a>
+        </div>
+
+
+                        <!-- Phebe Groenheide -->
+        <div class="col-md-4 col-sm-6">
+            <a href="/people/phebe-groenheide/" class="person-link">
+                <div class="card p-3 text-center person-card shadow">
+                    <img src="{% static 'people/phebe_groenheide.jpg' %}"
+                         alt="Phebe Groenheide"
+                         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+                    <h4>Jamila Guichelaar</h4>
+                    <p class="text-muted">PhD Student</p>
+                    <p><a href="mailto:P.J.Groenheide@umcutrecht.nl">P.J.Groenheide@umcutrecht.nl</a></p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <h2 class="mb-3">Alumni</h2>
+
+    <h5 class="mb-2">PhD</h5>
+    <ul class="alumni-list">
+        <li>Anouk Versteeg</li>
+    </ul>
+
+    <h5 class="mb-2">Master's Students</h5>
+    <ul class="alumni-list">
+        <li>Joris Harbers</li>
+    </ul>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

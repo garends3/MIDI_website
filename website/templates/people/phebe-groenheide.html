@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MiDI Lab – Chantal Tax</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body { background: #f8f9fa; }
+
+        /* Header from Research page */
+        header { 
+            background: #fff; 
+            padding: 20px 40px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
+        header h1 { margin: 0; }
+        nav a { 
+            margin-left: 20px; 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+        }
+        nav a:hover { color: #007BFF; }
+
+        /* Profile page styling */
+        .section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-photo {
+            display: block;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>MiDI Lab</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/people/">People</a>
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+    </nav>
+</header>
+
+<div class="section">
+
+    <img src="{% static 'people/phebe_groenheide.jpg' %}"
+         alt="Phebe Groenheide"
+         class="profile-photo"
+         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+
+    <h2 class="text-center mb-4">Chantal Tax</h2>
+
+    <h4>Brief Description</h4>
+    <p>
+        Phebe is currently employed as a PhD Candidate at
+        the Radiology and Neurology department of the University Medical Center Utrecht and the Imaging Science Insitute. 
+    </p>
+
+    <h4>Background</h4>
+    <p>
+        
+    Hi, I am Phebe, a PhD candidate at the Departments of Neurology and Radiology of UMC Utrecht. Within the Aneurysm@Risk project of the SHERPA consortium, I contribute to the development of an image-based prediction model for intracranial aneurysm instability, aiming to improve clinical decision-making in patients with unruptured intracranial aneurysms.
+    My research focuses on aneurysm morphology as a predictor of future instability. Using CTA and MRA imaging, I extract and analyze shape features from semi-automatic aneurysm segmentations and evaluate their predictive value for aneurysm growth and rupture.
+    This work is part of a multicenter collaboration using longitudinal imaging and clinical data from several European centers, including Geneva University Hospitals, University Medical Center Hamburg-Eppendorf, Hôpital Bicêtre, and UMC Utrecht.
+
+    </p>
+
+
+    <h4>Fellowship and Awards</h4>
+    <ul>
+        <li></li>
+    </ul>
+
+    <h4>Recommended Publications</h4>
+    <ul>
+    </ul>
+
+
+    <h4>Keywords</h4>
+    <p> MRA, aneurysm, CTA </p>
+
+</div>
+
+</body>
+</html>

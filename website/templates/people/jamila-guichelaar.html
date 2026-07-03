@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MiDI Lab – Chantal Tax</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body { background: #f8f9fa; }
+
+        /* Header from Research page */
+        header { 
+            background: #fff; 
+            padding: 20px 40px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
+        header h1 { margin: 0; }
+        nav a { 
+            margin-left: 20px; 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+        }
+        nav a:hover { color: #007BFF; }
+
+        /* Profile page styling */
+        .section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-photo {
+            display: block;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>MiDI Lab</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/people/">People</a>
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+    </nav>
+</header>
+
+<div class="section">
+
+    <img src="{% static 'people/chantal_tax.png' %}"
+         alt="Chantal Tax"
+         class="profile-photo"
+         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+
+    <h2 class="text-center mb-4">Chantal Tax</h2>
+
+    <h4>Brief Description</h4>
+    <p>
+        Chantal Tax is currently employed as a Assistant Professor at
+        the Radiology department of the University Medical Center Utrecht and the Imaging Science Insitute. She is also affliated to the Cardiff University Brain Research Imaging Centre (CUBRIC) as a Research Fellow.
+    </p>
+
+    <h4>Background</h4>
+    <p>
+        I have received my masters in Medical Engineering from Eindhoven University of Technology in 2012 and PhD in Medical Imaging (with a focus on diffusion MRI) in 2016 at the UMCU. 
+        Since then, I have been working at CUBRIC, Cardiff University in the UK on extracting new information from multi-contrast MRI experiments with the ultra-strong gradient Connectom MRI scanner. 
+        I am interested in optimising different aspects of the preprocessing and analysis pipeline, as  well as applying differential geometric methods to diffusion MRI data. 
+        My work at the Image Sciences Institute focuses on optimising MRI experiment design for MRI scanners with clinical gradient systems.
+    </p>
+
+
+    <h4>Fellowship and Awards</h4>
+    <ul>
+        <li></li>
+    </ul>
+
+    <h4>Recommended Publications</h4>
+    <ul>
+        <li>
+            Planchuelo-Gómez, Á., Descoteaux, M., Larochelle, H., Hutter, J., Jones, D. K., & Tax, C. M. W. (2024). 
+            Optimisation of quantitative brain diffusion-relaxation MRI acquisition protocols with physics-informed 
+            machine learning. <i>Medical Image Analysis, 97</i>, 103134. 
+            <a href="https://doi.org/10.1016/j.media.2024.103134" target="_blank">
+                https://doi.org/10.1016/j.media.2024.103134
+            </a>
+        </li>
+        <br>
+        <li>
+            G. C. Arends,  E. Versteeg,  A. De Luca,  F. Marc,  T. H. M. Roos,  D. W. J. Klomp,  M. Froeling,  J. C. W. Siero,  C. M. W. Tax. Feasibility of strong diffusion encoding and fast readout using 
+            a plug-and-play head gradient insert at 7 T. <i>Magnetic Resonance in Medicine, 94</i>(5), 2304–2316 (2025).  
+            <a href="https://doi.org/10.1002/mrm.30613" target="_blank">
+                https://doi.org/10.1002/mrm.30613
+            </a>
+            <br>
+        </li>
+        <br>
+        <li>
+            Tax, C. M. W., Bastiani, M., Veraart, J., Garyfallidis, E., & Irfanoglu, M. O. (2021). 
+            What’s new and what’s next in diffusion MRI preprocessing. <i>NeuroImage, 241</i>, 118830.
+            <a href="https://doi.org/10.1016/j.neuroimage.2021.118830" target="_blank">
+                https://doi.org/10.1016/j.neuroimage.2021.118830
+            </a>
+        </li>
+    </ul>
+
+
+    <h4>Keywords</h4>
+    <p> diffusion MRI, gradient inserts, tractography </p>
+
+</div>
+
+</body>
+</html>
