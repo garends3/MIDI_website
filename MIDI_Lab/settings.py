@@ -50,7 +50,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    # ...
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 
@@ -69,8 +74,8 @@ TEMPLATES = [
     },
 ]
 
-ROOT_URLCONF = 'MIDI.urls'
-WSGI_APPLICATION = 'MIDI.wsgi.application'
+ROOT_URLCONF = 'MIDI_Lab.urls'
+WSGI_APPLICATION = 'MIDI_Lab.wsgi.application'
 
 
 # Database
