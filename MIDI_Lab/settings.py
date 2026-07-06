@@ -32,8 +32,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
-ALLOWED_HOSTS = [".onrender.com"]
+ALLOWED_HOSTS = [
+    "midi-lab.org",
+    "www.midi-lab.org",
+    ".onrender.com",
+]
 
 
 # Application definition
