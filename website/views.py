@@ -1,5 +1,5 @@
 # Create your views here.
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from .models import Person, ResearchTheme, Publication, PhDThesis
 
 def home(request):
@@ -29,11 +29,7 @@ def research(request):
     })
 
 def person_detail(request, slug):
-    # Was: render(request, f"people/{slug}.html") with no lookup at all,
-    # so any bad/typo'd URL raised a raw TemplateDoesNotExist error instead
-    # of a clean 404 - bad for both users and search engine crawlers.
-    person = get_object_or_404(Person, slug=slug)
-    return render(request, f"people/{slug}.html", {"person": person})
+    return render(request, f"people/{slug}.html")
 
 def ISMRM_2026(request):
     return render(request, "news/ISMRM_2026.html")
@@ -84,7 +80,6 @@ def publications(request):
 
     return render(request, "website/publications.html", {
         "journal_articles": journal_articles,
-        "phd_theses": phd_theses,
-        "meta_title": "Publications \u2013 MiDI Lab",
-        "meta_description": "Browse journal articles and PhD theses published by MiDI Lab researchers on diffusion MRI, tissue microstructure, and MRI gradient hardware.",
+        "phd_theses": phd_theses
     })
+
