@@ -1,6 +1,5 @@
-
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Person, ResearchTheme, Publication, PhDThesis
 
 def home(request):
@@ -9,18 +8,32 @@ def home(request):
     return render(request, "website/home.html", {
         "themes": themes,
         "people": people[:4],  # show only some
+        "meta_title": "MiDI Lab \u2013 Diffusion MRI & Microstructure Imaging Research",
+        "meta_description": "MiDI Lab at UMC Utrecht researches diffusion MRI and MRI gradient hardware. Explore our people, research themes, and publications, and learn how to collaborate with us.",
     })
 
 def people(request):
     people = Person.objects.all().order_by("role")
-    return render(request, "website/people.html", {"people": people})
+    return render(request, "website/people.html", {
+        "people": people,
+        "meta_title": "People \u2013 MiDI Lab",
+        "meta_description": "Meet the researchers of MiDI Lab at UMC Utrecht: our group lead, postdocs, PhD students, and alumni working on diffusion MRI and microstructure imaging.",
+    })
 
 def research(request):
     themes = ResearchTheme.objects.all()
-    return render(request, "website/research.html", {"themes": themes})
+    return render(request, "website/research.html", {
+        "themes": themes,
+        "meta_title": "Research \u2013 MiDI Lab",
+        "meta_description": "MiDI Lab's research spans diffusion MRI with plug-and-play gradient inserts, multi-modal microscopy validation of tissue microstructure, and flow MRI for aneurysm detection.",
+    })
 
 def person_detail(request, slug):
-    return render(request, f"people/{slug}.html")
+    # Was: render(request, f"people/{slug}.html") with no lookup at all,
+    # so any bad/typo'd URL raised a raw TemplateDoesNotExist error instead
+    # of a clean 404 - bad for both users and search engine crawlers.
+    person = get_object_or_404(Person, slug=slug)
+    return render(request, f"people/{slug}.html", {"person": person})
 
 def ISMRM_2026(request):
     return render(request, "news/ISMRM_2026.html")
@@ -71,6 +84,7 @@ def publications(request):
 
     return render(request, "website/publications.html", {
         "journal_articles": journal_articles,
-        "phd_theses": phd_theses
+        "phd_theses": phd_theses,
+        "meta_title": "Publications \u2013 MiDI Lab",
+        "meta_description": "Browse journal articles and PhD theses published by MiDI Lab researchers on diffusion MRI, tissue microstructure, and MRI gradient hardware.",
     })
-

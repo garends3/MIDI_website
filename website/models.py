@@ -1,5 +1,6 @@
 # Create your models here.
 from django.db import models
+from django.utils.text import slugify
 
 class Person(models.Model):
     name = models.CharField(max_length=200)
@@ -7,6 +8,17 @@ class Person(models.Model):
     photo = models.ImageField(upload_to="people/", blank=True)
     email = models.EmailField(blank=True)
     bio = models.TextField(blank=True)
+    # SEO: gives each person a stable, readable URL (e.g. /people/jane-doe/)
+    # and lets sitemaps.py list real person pages instead of skipping them.
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
+    # SEO: short description for that person's <meta name="description">
+    # tag once templates use it (falls back to bio if left blank).
+    meta_description = models.CharField(max_length=160, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -32,9 +44,6 @@ class PhDThesis(models.Model):
     university = models.CharField(max_length=200)
     year = models.IntegerField()
     link = models.URLField(blank=True, null=True)  # <-- added field for clickable link
-
-    def __str__(self):
-        return f"{self.title} ({self.year})"
 
     def __str__(self):
         return f"{self.title} ({self.year})"
