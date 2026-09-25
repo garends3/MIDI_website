@@ -4,7 +4,7 @@ import os
 import django
 
 # Set up Django environment for standalone script
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "taxlab_website.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "MIDI_Lab.settings")
 django.setup()
 
 from website.models import Publication

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://midi-lab.org/sitemap.xml
+Sitemap: https://www.midi-lab.org/sitemap.xml

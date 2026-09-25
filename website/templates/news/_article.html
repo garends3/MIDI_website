@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% comment %}Shared layout for news items; each news/<slug>.html fills {% block article %}.{% endcomment %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "{{ item.title|escapejs }}",
+  "description": "{{ item.summary|escapejs }}",
+  "image": "https://www.midi-lab.org{% static item.image %}",
+  "publisher": {"@type": "ResearchOrganization", "name": "MiDI Lab, UMC Utrecht", "url": "https://www.midi-lab.org/"}
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="article">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/#news">News</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ item.label }}</li>
+            </ol>
+        </nav>
+        <span class="eyebrow">{{ item.label }}</span>
+        {% block article %}{% endblock %}
+        <hr class="my-5">
+        <a href="/#news" class="tile-link">Back to all news</a>
+    </div>
+</div>
+{% endblock %}

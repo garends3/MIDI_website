@@ -1,26 +1,12 @@
-"""
-SEO: proper Django sitemap definitions.
-
-The previous sitemap.py accidentally duplicated views.py and defined view
-functions instead of a Sitemap class, so it never produced a real
-sitemap.xml. This file replaces it.
-
-Wire this up in the project's urls.py (see the diff/instructions given
-alongside this file).
-"""
+"""Sitemap for search engines, served at /sitemap.xml."""
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
-from .models import Person, ResearchTheme
-
-
-from django.contrib.sitemaps import Sitemap
-from django.urls import reverse
-from django.apps import apps
+from .people_data import PEOPLE
+from .news_data import NEWS
 
 
 class StaticViewSitemap(Sitemap):
-    priority = 0.8
     changefreq = "weekly"
 
     def items(self):
@@ -29,32 +15,34 @@ class StaticViewSitemap(Sitemap):
     def location(self, item):
         return reverse(item)
 
+    def priority(self, item):
+        return 1.0 if item == "home" else 0.8
+
 
 class PersonSitemap(Sitemap):
     changefreq = "monthly"
     priority = 0.6
 
     def items(self):
-        Person = apps.get_model("website", "Person")
-        return Person.objects.all()
+        return [p["slug"] for p in PEOPLE]
 
-    def location(self, obj):
-        return reverse("person_detail", args=[obj.slug])
+    def location(self, slug):
+        return reverse("person_detail", args=[slug])
 
 
-class ResearchThemeSitemap(Sitemap):
-    changefreq = "monthly"
+class NewsSitemap(Sitemap):
+    changefreq = "yearly"
     priority = 0.5
 
     def items(self):
-        return []
+        return [n["slug"] for n in NEWS]
 
-    def location(self, obj):
-        return reverse("home")
+    def location(self, slug):
+        return reverse("news_detail", args=[slug])
 
 
 sitemaps = {
     "static": StaticViewSitemap,
     "people": PersonSitemap,
-    "research": ResearchThemeSitemap,
+    "news": NewsSitemap,
 }

@@ -1,0 +1,119 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% firstof meta_title "MiDI Lab – Microstructure & Dynamics Imaging, UMC Utrecht" as page_title %}
+    {% firstof meta_description "MiDI Lab at UMC Utrecht develops diffusion MRI methods, from MRI gradient hardware to microstructure modelling, microscopy validation and clinical applications." as page_description %}
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_description }}">
+    <link rel="canonical" href="https://www.midi-lab.org{{ request.path }}">
+
+    <!-- Social sharing (LinkedIn, X, Slack, ...) -->
+    <meta property="og:site_name" content="MiDI Lab">
+    <meta property="og:type" content="{{ og_type|default:'website' }}">
+    <meta property="og:title" content="{{ page_title }}">
+    <meta property="og:description" content="{{ page_description }}">
+    <meta property="og:url" content="https://www.midi-lab.org{{ request.path }}">
+    <meta property="og:image" content="https://www.midi-lab.org{% if og_image %}{% static og_image %}{% else %}{% static 'images/og-image.jpg' %}{% endif %}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="{% static 'images/favicon.svg' %}" type="image/svg+xml">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" sizes="any">
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+    <meta name="theme-color" content="#1961ab">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/site.css' %}" rel="stylesheet">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="navbar navbar-expand-lg site-nav sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="/" aria-label="MiDI Lab home">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <span class="brand-text">
+                <span class="brand-name">MiDI Lab</span>
+                <span class="brand-sub">Microstructure &amp; Dynamics Imaging</span>
+            </span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            {% with p=request.path %}
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                <li class="nav-item"><a class="nav-link {% if p == '/' %}active{% endif %}" href="/" {% if p == '/' %}aria-current="page"{% endif %}>Home</a></li>
+                <li class="nav-item"><a class="nav-link {% if p|slice:':8' == '/people/' %}active{% endif %}" href="/people/">People</a></li>
+                <li class="nav-item"><a class="nav-link {% if p|slice:':10' == '/research/' %}active{% endif %}" href="/research/">Research</a></li>
+                <li class="nav-item"><a class="nav-link {% if p|slice:':14' == '/publications/' %}active{% endif %}" href="/publications/">Publications</a></li>
+                <li class="nav-item"><a class="nav-link {% if p|slice:':6' == '/news/' %}active{% endif %}" href="/#news">News</a></li>
+                <li class="nav-item d-none d-lg-block ms-3">
+                    <a href="https://www.umcutrecht.nl/en" target="_blank" rel="noopener">
+                        <img src="{% static 'images/umcutrecht_logo.png' %}" alt="UMC Utrecht" class="nav-logo">
+                    </a>
+                </li>
+            </ul>
+            {% endwith %}
+        </div>
+    </div>
+</nav>
+
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="/">
+                    <span class="brand-mark" aria-hidden="true">M</span>
+                    <span class="brand-name" style="color:var(--ink)">MiDI Lab</span>
+                </a>
+                <p class="text-secondary mb-3" style="max-width:380px">
+                    Microstructure and Dynamics Imaging Lab at the Image Sciences Institute,
+                    Department of Radiology, UMC Utrecht.
+                </p>
+                <div class="footer-logos">
+                    <a href="https://www.umcutrecht.nl/en" target="_blank" rel="noopener"><img src="{% static 'images/umcutrecht_logo.png' %}" alt="UMC Utrecht" loading="lazy"></a>
+                    <a href="https://www.uu.nl/en" target="_blank" rel="noopener"><img src="{% static 'images/uu_logo.png' %}" alt="Utrecht University" loading="lazy"></a>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h2>Explore</h2>
+                <ul>
+                    <li><a href="/research/">Research</a></li>
+                    <li><a href="/people/">People</a></li>
+                    <li><a href="/publications/">Publications</a></li>
+                    <li><a href="/#news">News</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-lg-4">
+                <h2>Contact</h2>
+                <address class="mb-2">
+                    Image Sciences Institute<br>
+                    UMC Utrecht<br>
+                    Heidelberglaan 100<br>
+                    3584 CX Utrecht, the Netherlands
+                </address>
+                <a href="mailto:C.M.W.Tax@umcutrecht.nl">C.M.W.Tax@umcutrecht.nl</a>
+            </div>
+        </div>
+        <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
+            <span>© {% now "Y" %} MiDI Lab · UMC Utrecht</span>
+            <span>We welcome collaborations and student projects, <a href="mailto:C.M.W.Tax@umcutrecht.nl">get in touch</a>.</span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" defer></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>
