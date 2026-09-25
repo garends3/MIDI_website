@@ -1,19 +1,97 @@
-{% extends "people/_profile.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paula del Popolo – MiDI Lab, UMC Utrecht</title>
+    <meta name="description" content="Paula del Popolo is a PhD student at MiDI Lab, UMC Utrecht, working on forward modelling of diffusion MRI to probe tissue microstructure.">
+    <link rel="canonical" href="https://www.midi-lab.org/people/paula-del-popolo/">
 
-{% block bio %}
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<section>
-    <h2>About</h2>
+    <style>
+        body { background: #f8f9fa; }
+
+        /* Header from Research page */
+        header { 
+            background: #fff; 
+            padding: 20px 40px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
+        header h1 { margin: 0; }
+        nav a { 
+            margin-left: 20px; 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+        }
+        nav a:hover { color: #007BFF; }
+
+        /* Profile page styling */
+        .section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-photo {
+            display: block;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>MiDI Lab</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/people/">People</a>
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+    </nav>
+</header>
+
+<div class="section">
+
+    <img src="{% static 'people/paula_del_popolo.jpg' %}"
+         alt="Paula del Popolo"
+         class="profile-photo"
+         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+
+    <h2 class="text-center mb-1">Paula del Popolo</h2>
+    <p class="text-center text-muted mb-4">PhD Student</p>
+
+    <h4>Brief Description</h4>
     <p>
         Medical imaging researcher focused on the physics and modelling of diffusion MRI for probing tissue microstructure. Currently a second-year PhD student in Medical Imaging working on forward modelling diffusion MRI. Previous work includes simulation-based inference (neural posterior estimation) and optimal measurement selection for joint diffusion–relaxation MRI.
     </p>
-</section>
 
-<section>
-    <h2>Background</h2>
+    <h4>Background</h4>
     <p>
         BSc in Bioengineering, MSc in Medical Imaging (Utrecht University).
     </p>
-</section>
 
-{% endblock %}
+    <h4>Keywords</h4>
+    <p>
+        Diffusion MRI, physics-informed machine learning, tissue microstructure, sequence optimisation
+    </p>
+
+</div>
+
+</body>
+</html>

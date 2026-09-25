@@ -1,23 +1,107 @@
-{% extends "people/_profile.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jiaxin Zhang – MiDI Lab, UMC Utrecht</title>
+    <meta name="description" content="Jiaxin Zhang is a PhD candidate at MiDI Lab, UMC Utrecht, developing deep learning segmentation of intracranial arteries and aneurysms and 4D Flow MRI hemodynamic analysis.">
+    <link rel="canonical" href="https://www.midi-lab.org/people/jiaxin-zhang/">
 
-{% block bio %}
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<section>
-    <h2>About</h2>
+    <style>
+        body { background: #f8f9fa; }
+
+        /* Header from Research page */
+        header { 
+            background: #fff; 
+            padding: 20px 40px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
+        header h1 { margin: 0; }
+        nav a { 
+            margin-left: 20px; 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+        }
+        nav a:hover { color: #007BFF; }
+
+        /* Profile page styling */
+        .section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-photo {
+            display: block;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>MiDI Lab</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/people/">People</a>
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+    </nav>
+</header>
+
+<div class="section">
+
+    <img src="{% static 'people/jiaxin_zhang.jpg' %}"
+         alt="Jiaxin Zhang"
+         class="profile-photo"
+         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+
+    <h2 class="text-center mb-1">Jiaxin Zhang</h2>
+    <p class="text-center text-muted mb-4">PhD Student</p>
+
+    <h4>Brief Description</h4>
     <p>
         Jiaxin Zhang is currently a PhD candidate in the Department of Radiology and the Image Sciences Institute at University Medical Center Utrecht, the Netherlands.
     </p>
-</section>
 
-<section>
-    <h2>Background</h2>
+    <h4>Background</h4>
     <p>
         Jiaxin Zhang was born in China and received her bachelor's degree in Intelligent Medical Engineering from Tianjin University. In 2023, she moved to the Netherlands, where she obtained her master's degree in Medical Imaging from Utrecht University. Her current research focuses on developing segmentation models across different imaging modalities for intracranial arteries and aneurysms using CTA, MRA, and 4D Flow MRI, as well as quantitative hemodynamic analysis using 4D Flow MRI.
     </p>
-</section>
 
-{# Grants &amp; awards: add content here, e.g. <ul><li>...</li></ul>, then wrap in <section> like the others #}
+    <h4>Fellowship and Awards</h4>
+    <ul>
+        <li></li>
+    </ul>
 
-{# Selected publications: add content here, e.g. <ul><li>...</li></ul>, then wrap in <section> like the others #}
+    <h4>Recommended Publications</h4>
+    <ul>
+        <li></li>
+    </ul>
 
-{% endblock %}
+    <h4>Keywords</h4>
+    <p>
+        Deep learning, intracranial aneurysms, segmentation, hemodynamic analysis, vascular imaging
+    </p>
+
+</div>
+
+</body>
+</html>

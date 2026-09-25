@@ -1,12 +1,26 @@
-"""Sitemap for search engines, served at /sitemap.xml."""
+"""
+SEO: proper Django sitemap definitions.
+
+The previous sitemap.py accidentally duplicated views.py and defined view
+functions instead of a Sitemap class, so it never produced a real
+sitemap.xml. This file replaces it.
+
+Wire this up in the project's urls.py (see the diff/instructions given
+alongside this file).
+"""
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
-from .people_data import PEOPLE
-from .news_data import NEWS
+from .models import Person, ResearchTheme
+
+
+from django.contrib.sitemaps import Sitemap
+from django.urls import reverse
+from django.apps import apps
 
 
 class StaticViewSitemap(Sitemap):
+    priority = 0.8
     changefreq = "weekly"
 
     def items(self):
@@ -15,34 +29,38 @@ class StaticViewSitemap(Sitemap):
     def location(self, item):
         return reverse(item)
 
-    def priority(self, item):
-        return 1.0 if item == "home" else 0.8
-
 
 class PersonSitemap(Sitemap):
+    """One entry per profile template in website/templates/people/.
+
+    Profiles are hand-written templates (not Person rows in the database),
+    so we list the template files instead of querying the Person model.
+    """
     changefreq = "monthly"
     priority = 0.6
 
     def items(self):
-        return [p["slug"] for p in PEOPLE]
+        from pathlib import Path
+        people_dir = Path(__file__).resolve().parent / "templates" / "people"
+        return sorted(p.stem for p in people_dir.glob("*.html"))
 
     def location(self, slug):
         return reverse("person_detail", args=[slug])
 
 
-class NewsSitemap(Sitemap):
-    changefreq = "yearly"
+class ResearchThemeSitemap(Sitemap):
+    changefreq = "monthly"
     priority = 0.5
 
     def items(self):
-        return [n["slug"] for n in NEWS]
+        return []
 
-    def location(self, slug):
-        return reverse("news_detail", args=[slug])
+    def location(self, obj):
+        return reverse("home")
 
 
 sitemaps = {
     "static": StaticViewSitemap,
     "people": PersonSitemap,
-    "news": NewsSitemap,
+    "research": ResearchThemeSitemap,
 }

@@ -6,7 +6,8 @@ urlpatterns = [
     path("people/", views.people, name="people"),
     path("research/", views.research, name="research"),
     path("publications/", views.publications, name="publications"),
-    path("people/<slug:slug>/", views.person_detail, name="person_detail"),
-    # Existing news URLs end in .html; kept as-is so old links keep working.
-    path("news/<str:slug>.html", views.news_detail, name="news_detail"),
+    path('people/<slug:slug>/', views.person_detail, name='person_detail'),
+    path("news/ISMRM_2026.html", views.ISMRM_2026),
+    path("news/NatureCom.html", views.news_natcom),
+    path("news/Vidi_Chantal.html", views.news_vidi),
 ]

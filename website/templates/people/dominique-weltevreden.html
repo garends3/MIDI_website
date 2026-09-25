@@ -1,21 +1,102 @@
-{% extends "people/_profile.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dominique Weltevreden – MiDI Lab, UMC Utrecht</title>
+    <meta name="description" content="Dominique Weltevreden is a PhD candidate at Utrecht University and MiDI Lab, UMC Utrecht, applying ultrasound, MRI and normative modelling to early brain development.">
+    <link rel="canonical" href="https://www.midi-lab.org/people/dominique-weltevreden/">
 
-{% block bio %}
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<section>
-    <h2>About</h2>
+    <style>
+        body { background: #f8f9fa; }
+
+        /* Header from Research page */
+        header { 
+            background: #fff; 
+            padding: 20px 40px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
+        header h1 { margin: 0; }
+        nav a { 
+            margin-left: 20px; 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+        }
+        nav a:hover { color: #007BFF; }
+
+        /* Profile page styling */
+        .section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-photo {
+            display: block;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>MiDI Lab</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/people/">People</a>
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+    </nav>
+</header>
+
+<div class="section">
+
+    <img src="{% static 'people/dominique_weltevreden.jpg' %}"
+         alt="Dominique Weltevreden"
+         class="profile-photo"
+         onerror="this.onerror=null;this.src='{% static 'people/placeholder.png' %}'">
+
+    <h2 class="text-center mb-1">Dominique Weltevreden</h2>
+    <p class="text-center text-muted mb-4">PhD Student</p>
+
+    <h4>Brief Description</h4>
     <p>
         Dominique Weltevreden is employed as a PhD candidate at the Developmental Psychology department of Utrecht University, in collaboration with Eindhoven University of Technology and the Radiology department of the University Medical Center Utrecht and the Image Sciences Institute. She works with multiple modalities of data, including ultrasound and structural MRI. Recently, she has been working with normative modelling frameworks for early brain development.
     </p>
-</section>
 
-<section>
-    <h2>Background</h2>
+    <h4>Background</h4>
     <p>
         Dominique Weltevreden received a bachelor's degree in behavioral neuroscience and a master's degree in computational science from the University of Amsterdam. She wrote her master thesis at the Bioinformatics Laboratory of the Amsterdam University Medical Centre on AI applications for predicting antigen-antibody binding. Her interest lies in interdisciplinary research combining computational and machine learning methods for (mental) health benefits.
     </p>
-</section>
 
-{# Grants &amp; awards: add content here, e.g. <ul><li>...</li></ul>, then wrap in <section> like the others #}
+    <h4>Fellowship and Awards</h4>
+    <ul>
+        <li></li>
+    </ul>
 
-{% endblock %}
+    <h4>Keywords</h4>
+    <p>
+        Ultrasound, machine learning, developmental neuroscience
+    </p>
+
+</div>
+
+</body>
+</html>
