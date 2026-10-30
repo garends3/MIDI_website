@@ -10,4 +10,5 @@ urlpatterns = [
     path("news/ISMRM_2026.html", views.ISMRM_2026),
     path("news/NatureCom.html", views.news_natcom),
     path("news/Vidi_Chantal.html", views.news_vidi),
+    path("news/ACE_challenge.html", views.news_ace),
 ]

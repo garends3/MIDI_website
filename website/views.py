@@ -40,6 +40,9 @@ def news_natcom(request):
 def news_vidi(request):
     return render(request, "news/Vidi_Chantal.html")
 
+def news_ace(request):
+    return render(request, "news/ACE_challenge.html")
+
 
 def publications(request):
     """

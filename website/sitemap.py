@@ -59,8 +59,23 @@ class ResearchThemeSitemap(Sitemap):
         return reverse("home")
 
 
+class NewsSitemap(Sitemap):
+    """One entry per news template in website/templates/news/."""
+    changefreq = "monthly"
+    priority = 0.7
+
+    def items(self):
+        from pathlib import Path
+        news_dir = Path(__file__).resolve().parent / "templates" / "news"
+        return sorted(p.name for p in news_dir.glob("*.html"))
+
+    def location(self, filename):
+        return f"/news/{filename}"
+
+
 sitemaps = {
     "static": StaticViewSitemap,
     "people": PersonSitemap,
+    "news": NewsSitemap,
     "research": ResearchThemeSitemap,
 }
